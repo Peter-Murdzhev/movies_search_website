@@ -13,7 +13,7 @@ const ScrollRestoration = () => {
 
     setTimeout(() => {
       window.scrollTo(0, scrollY);
-    }, 100);
+    }, 300);
 
     const handleScroll = () => {
       window.history.replaceState({ scrollY: window.scrollY }, "");
