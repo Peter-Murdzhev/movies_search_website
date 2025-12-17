@@ -45,7 +45,7 @@ const SearchBar = () => {
       <Hero isSearchTriggered={isSearchTriggered} />
 
       <form className={`search_bar ${isSearchTriggered ? "search_active" : ""}`}>
-        <input type="text" placeholder="Enter movie name"
+        <input type="text" value={input} placeholder="Enter movie name"
           onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown}></input>
         <button onClick={handleSearch}> Search</button>
       </form>
