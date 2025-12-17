@@ -7,14 +7,13 @@ const MoviePage = () => {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${id}`, {
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`
-      }
-    }).then(response => response.json())
-      .then(data => setMovie(data))
-      .catch(error => console.log(error));
+    const fetchMovie = async () => {
+      const response = await fetch(`/api/tmdb-movie?id=${id}`);
+      const data = response.json();
+      setMovie(data);
+    }
+
+    fetchMovie();
   }, [id])
 
   if (!movie) {
@@ -37,7 +36,7 @@ const MoviePage = () => {
         <div className="info_block">
           <p>Genres:</p>
           <ul>
-            {movie.genres.map((genre,index) => (
+            {movie.genres.map((genre, index) => (
               <li key={index}>{genre.name}</li>
             ))}
           </ul>
@@ -53,8 +52,10 @@ const MoviePage = () => {
         </div>
       </div>
 
-      <p style={{fontSize:"14px", margin:"0 auto",
-         marginBottom:"80px", marginTop:"20px" }}>Release date: {movie.release_date}</p>
+      <p style={{
+        fontSize: "14px", margin: "0 auto",
+        marginBottom: "80px", marginTop: "20px"
+      }}>Release date: {movie.release_date}</p>
     </>
 
   )
