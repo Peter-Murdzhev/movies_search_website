@@ -10,6 +10,11 @@ const SearchBar = () => {
   useEffect(() => {
     const triggered = sessionStorage.getItem("search_triggered") === "true";
     setIsSearchTriggered(triggered);
+
+    const currentInput = sessionStorage.getItem("input");
+    if(currentInput){
+      setInput(currentInput);
+    }
   }, [])
 
   const handleSearch = async (e) => {
@@ -18,6 +23,7 @@ const SearchBar = () => {
     if (input.length > 0) {
       setIsSearchTriggered(true);
       sessionStorage.setItem("search_triggered", true);
+      sessionStorage.setItem("input", input);
 
       navigate(`movies/${input}`);
     } else {

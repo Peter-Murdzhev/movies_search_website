@@ -13,8 +13,6 @@ const MovieCardsBrowser = () => {
         const fetchMovies = async () => {
             const response = await fetch(`/api/tmdb-movies-search?query=${fixedInput}`);
             const data = await response.json();
-            
-            console.log(data)
             setMovies(data);
         }
 

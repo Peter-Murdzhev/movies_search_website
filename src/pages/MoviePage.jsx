@@ -9,7 +9,7 @@ const MoviePage = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       const response = await fetch(`/api/tmdb-movie?id=${id}`);
-      const data = response.json();
+      const data = await response.json();
       setMovie(data);
     }
 
