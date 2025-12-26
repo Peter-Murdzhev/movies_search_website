@@ -73,7 +73,7 @@ body {
  left: 45%;
 }
 
-.movie_card a {
+.movie_card {
   width: 250px;
   height: 290px;
   display: flex;
