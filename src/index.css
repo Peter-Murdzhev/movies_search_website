@@ -87,12 +87,12 @@ body {
   background-color: #04418d;
 }
 
-.movie_card .release_date {
+.movie_card a .release_date {
   font-size: 12px;
   align-self: flex-end;
 }
 
-.movie_card img {
+.movie_card a img {
   width: 180px;
   height: 150px;
 }

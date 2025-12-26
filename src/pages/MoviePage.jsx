@@ -5,6 +5,7 @@ import Spinner from "../components/Spinner";
 const MoviePage = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const isMobile = window.innerWidth < 600;
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -15,6 +16,12 @@ const MoviePage = () => {
 
     fetchMovie();
   }, [id])
+
+  useEffect(() => {
+    if (movie && isMobile) {
+      window.scroll(0, 0);
+    }
+  }, [movie])
 
   if (!movie) {
     return <Spinner />
