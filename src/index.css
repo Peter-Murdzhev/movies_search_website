@@ -73,7 +73,7 @@ body {
  left: 45%;
 }
 
-.movie_card {
+.movie_card a{
   width: 250px;
   height: 290px;
   display: flex;
@@ -92,9 +92,10 @@ body {
   align-self: flex-end;
 }
 
-.movie_card a img {
+.movie_card a img{
   width: 180px;
   height: 150px;
+  pointer-events: none;
 }
 
 /* movies cards end */
