@@ -95,7 +95,6 @@ body {
 .movie_card img{
   width: 180px;
   height: 150px;
-  pointer-events: none;
 }
 
 /* movies cards end */
