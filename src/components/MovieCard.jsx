@@ -5,7 +5,7 @@ const MovieCard = ({ movie }) => {
   return (
 
 
-    <Link to={`/movie/${movie.id}`} replace={true} className="movie_card">
+    <Link to={`/movie/${movie.id}`} className="movie_card">
       <h3>{movie.title}</h3>
       <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title}></img>
       <p style={{ color: "yellow", textAlign: "center" }}><strong>Rating:{movie.vote_average}</strong></p>
