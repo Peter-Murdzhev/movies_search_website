@@ -3,7 +3,8 @@ export default async function handler(req, res) {
     const { id } = req.query;
 
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}`, {
+        const response = await
+         fetch(`https://api.themoviedb.org/3/movie/${id}?append_to_response=credits,reviews`, {
             headers: {
                 accept: "application/json",
                 Authorization: `Bearer ${apiKey}`
@@ -14,6 +15,6 @@ export default async function handler(req, res) {
         res.setHeader("Cache-Control", "s-maxage=600, stale-while-revalidate");
         res.status(200).json(data);
     } catch (error) {
-        res.status(500).json({error: "Error fetching the movie"});
+        res.status(500).json({ error: "Error fetching the movie" });
     }
 }

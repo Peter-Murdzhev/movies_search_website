@@ -6,7 +6,7 @@ const MovieCardsBrowser = () => {
     const [movies, setMovies] = useState([]);
     const { input } = useParams();
 
-
+    //production stage fetch
     useEffect(() => {
         const fixedInput = input.replace(/[.,/;:-]+/g, " ")
 
@@ -18,6 +18,26 @@ const MovieCardsBrowser = () => {
 
         fetchMovies();
     }, [input])
+
+    //this is dev stage fetch
+
+    // useEffect(() => {
+    //     const fixedInput = input.replace(/[.,/;:-]+/g, " ")
+
+    //     const fetchMovies = async () => {
+    //         const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${fixedInput}`, {
+    //             headers: {
+    //                 accept: "application/json",
+    //                 Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`
+    //             }
+    //         });
+
+    //         const data = await response.json();
+    //         setMovies(data.results);
+    //     }
+
+    //     fetchMovies();
+    // }, [input])
 
     return (
         <div className="movies">
