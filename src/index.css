@@ -67,10 +67,11 @@ body {
   text-decoration: none;
 }
 
-.no_movies_message{
- position:absolute;
- top: 20%;
- left: 45%;
+.no_movies_message {
+  position: absolute;
+  top: 30%;
+  left: 43%;
+  font-size: 20px;
 }
 
 .movie_card {
@@ -92,7 +93,7 @@ body {
   align-self: flex-end;
 }
 
-.movie_card img{
+.movie_card img {
   width: 180px;
   height: 150px;
   pointer-events: none;
@@ -112,13 +113,44 @@ body {
   margin-top: 50px;
 }
 
-.movie_page .description {
-  width: 60%;
+.movie_intro p {
+  display: flex;
+  justify-content: center;
+  color: yellow;
 }
 
-.movie_intro img {
-  width: 250px;
-  height: 200px;
+.movie_page .description {
+  width: 60%;
+  font-size: 17px;
+}
+
+.media_image img {
+  width: 320px;
+  height: 240px;
+}
+
+.media_video {
+  position: relative;
+}
+
+.close_button {
+  position: absolute;
+  top: 2%;
+  right: 1%;
+  padding: 2px;
+  color: rgb(248, 70, 70);
+}
+
+.media_image {
+  position: relative;
+}
+
+.play_button {
+  position: absolute;
+  top: 2%;
+  right: 1%;
+  padding: 2px;
+  /* color: #04418d; */
 }
 
 .movie_information {
@@ -132,8 +164,8 @@ body {
 
 .info_block {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: baseline;
+  flex-wrap: nowrap;
 }
 
 .info_block p {
@@ -155,7 +187,7 @@ body {
   content: ", ";
 }
 
-.reviews_section{
+.reviews_section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -163,7 +195,7 @@ body {
   margin-bottom: 80px;
 }
 
-.review{
+.review {
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -232,7 +264,7 @@ body {
 
 
 @media (max-width: 600px) {
-  body{
+  body {
     width: 90%;
   }
 
@@ -240,8 +272,8 @@ body {
     width: 200px;
   }
 
-  .no_movies_message{
-    left: 30%;
+  .no_movies_message {
+    left: 28%;
     top: 30%;
   }
 
@@ -249,7 +281,6 @@ body {
     width: 180px;
     height: 220px;
     padding: 40px;
-    
   }
 
   .movie_page {
@@ -262,7 +293,7 @@ body {
     width: 100%;
   }
 
-  .movie_information{
+  .movie_information {
     flex-direction: column;
     align-items: start;
     gap: 10px;
@@ -272,21 +303,20 @@ body {
     font-size: 16px;
   }
 
-  .info_block{
+  .info_block {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: baseline;
   }
 
-  .review{
+  .review {
     width: 95%;
   }
 
-  .review p{
+  .review p {
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
-
 
   .footer {
     font-size: 14px;

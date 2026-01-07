@@ -4,7 +4,7 @@ export default async function handler(req, res) {
 
     try {
         const response = await
-         fetch(`https://api.themoviedb.org/3/movie/${id}?append_to_response=credits,reviews`, {
+         fetch(`https://api.themoviedb.org/3/movie/${id}?append_to_response=credits,reviews,videos`, {
             headers: {
                 accept: "application/json",
                 Authorization: `Bearer ${apiKey}`

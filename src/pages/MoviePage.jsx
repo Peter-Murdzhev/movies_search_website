@@ -2,12 +2,14 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 import Spinner from "../components/Spinner";
 import Review from "../components/Review";
+import MediaDisplay from "../components/MediaDisplay";
 
 const MoviePage = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [actors, setActors] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [trailerURL, setTrailerURL] = useState("");
 
   //production stage fetch
   useEffect(() => {
@@ -18,6 +20,11 @@ const MoviePage = () => {
       setMovie(data);
       setActors(data.credits.cast?.slice(0, 7));
       setReviews(data.reviews.results?.slice(0, 10));
+      const video = data.videos.results?.find(vid => vid.type === "Trailer" && vid.site === "YouTube");
+
+      if (video) {
+        setTrailerURL(`https://www.youtube.com/embed/${video.key}`);
+      }
     }
 
     fetchMovie();
@@ -28,17 +35,22 @@ const MoviePage = () => {
   // useEffect(() => {
   //   const fetchMovie = async () => {
   //     const response = await
-  //       fetch(`https://api.themoviedb.org/3/movie/${id}?append_to_response=credits,reviews`, {
+  //       fetch(`https://api.themoviedb.org/3/movie/${id}?append_to_response=credits,reviews,videos`, {
   //         headers: {
   //           accept: "application/json",
   //           Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`
   //         }
   //       });
   //     const data = await response.json();
-  
+
   //     setMovie(data);
-  //     setActors(data.credits.cast?.slice(0, 7));
+  //     setActors(data.credits.cast?.slice(0, 10));
   //     setReviews(data.reviews.results?.slice(0, 10));
+  //     const video = data.videos.results?.find(vid => vid.type === "Trailer" && vid.site === "YouTube");
+
+  //     if (video) {
+  //       setTrailerURL(`https://www.youtube.com/embed/${video.key}`);
+  //     }
   //   }
 
   //   fetchMovie();
@@ -58,9 +70,9 @@ const MoviePage = () => {
     <>
       <div className="movie_page">
         <div className="movie_intro">
-          <h3>{movie.title}</h3>
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}></img>
-          <p style={{ color: "yellow", marginLeft: "90px" }}><strong>Rating:{movie.vote_average}</strong></p>
+          <h2>{movie.title}</h2>
+          <MediaDisplay imageSrc={movie.poster_path} trailerSrc={trailerURL} />
+          <p ><strong>Rating:{movie.vote_average}</strong></p>
         </div>
 
         <p className="description">{movie.overview}</p>
@@ -96,7 +108,7 @@ const MoviePage = () => {
       </div>
 
       <div className="info_block" style={{ alignSelf: "center", fontSize: "14px" }}>
-        <p style={{fontSize: "14px"}}>Languages:</p>
+        <p style={{ fontSize: "14px" }}>Languages:</p>
         <ul>
           {movie.spoken_languages.map((language, index) => (
             <li key={index}>{language.english_name}</li>
