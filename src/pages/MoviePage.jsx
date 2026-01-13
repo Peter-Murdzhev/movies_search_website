@@ -18,7 +18,7 @@ const MoviePage = () => {
       const data = await response.json();
 
       setMovie(data);
-      setActors(data.credits.cast?.slice(0, 7));
+      setActors(data.credits.cast?.slice(0, 10));
       setReviews(data.reviews.results?.slice(0, 10));
       const video = data.videos.results?.find(vid => vid.type === "Trailer" && vid.site === "YouTube");
 

@@ -12,10 +12,10 @@ const MediaDisplay = ({ imageSrc, trailerSrc }) => {
                         onClick={() => setToggleVideo(false)} />
                     <iframe
                         width="320px"
-                        height="240px"
+                        height="300px"
                         src={trailerSrc}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
+                        allowFullScreen   
                     ></iframe>
                 </div>
                 :

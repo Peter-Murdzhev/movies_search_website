@@ -76,11 +76,11 @@ body {
 
 .movie_card {
   width: 250px;
-  height: 290px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  place-items: center;
+  align-items: center;
   padding: 20px;
   margin: 20px;
   /* border: solid 3px #01b4e4; */
@@ -95,7 +95,7 @@ body {
 
 .movie_card img {
   width: 180px;
-  height: 150px;
+  height: 220px;
   pointer-events: none;
 }
 
@@ -126,7 +126,7 @@ body {
 
 .media_image img {
   width: 320px;
-  height: 240px;
+  height: 350px;
 }
 
 .media_video {
@@ -265,7 +265,7 @@ body {
 
 @media (max-width: 600px) {
   body {
-    width: 90%;
+    width: 95%;
   }
 
   .hero img {
@@ -277,10 +277,15 @@ body {
     top: 30%;
   }
 
-  .movie_card a {
-    width: 180px;
-    height: 220px;
+  .movie_card  {
+    width: 220px;
+    height: 350px;
     padding: 40px;
+  }
+
+  .movie_card img{
+    width: 200px;
+    height: 240px;
   }
 
   .movie_page {
@@ -291,6 +296,10 @@ body {
 
   .movie_page .description {
     width: 100%;
+  }
+
+  .media_image img{
+    height: 400px;
   }
 
   .movie_information {
