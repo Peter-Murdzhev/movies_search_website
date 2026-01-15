@@ -8,7 +8,7 @@ const MediaDisplay = ({ imageSrc, trailerSrc }) => {
         <div className="media_display">
             {trailerSrc && toggleVideo ?
                 <div className="media_video">
-                    <AiOutlineCloseCircle fontSize={24} className="close_button"
+                    <AiOutlineCloseCircle className="close_button"
                         onClick={() => setToggleVideo(false)} />
                     <iframe
                         width="320px"
@@ -21,7 +21,7 @@ const MediaDisplay = ({ imageSrc, trailerSrc }) => {
                 :
                 <div className="media_image">
                     {trailerSrc &&
-                        <AiFillPlayCircle fontSize={24} className="play_button"
+                        <AiFillPlayCircle className="play_button"
                             onClick={() => setToggleVideo(true)} />
                     }
                     <img src={`https://image.tmdb.org/t/p/w500/${imageSrc}`}></img>

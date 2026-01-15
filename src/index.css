@@ -135,10 +135,12 @@ body {
 
 .close_button {
   position: absolute;
-  top: 2%;
+  top: 1%;
   right: 1%;
   padding: 2px;
+  font-size: 24px;
   color: rgb(248, 70, 70);
+  cursor: pointer;
 }
 
 .media_image {
@@ -147,10 +149,14 @@ body {
 
 .play_button {
   position: absolute;
-  top: 2%;
+  top: 1%;
   right: 1%;
   padding: 2px;
-  /* color: #04418d; */
+  font-size: 30px;
+  color: rgb(220, 220, 220);
+  border-radius: 50%;
+  box-shadow: 0 0 5px 4px #174684;
+  cursor: pointer;
 }
 
 .movie_information {
@@ -277,13 +283,13 @@ body {
     top: 30%;
   }
 
-  .movie_card  {
+  .movie_card {
     width: 220px;
     height: 350px;
     padding: 40px;
   }
 
-  .movie_card img{
+  .movie_card img {
     width: 200px;
     height: 240px;
   }
@@ -298,7 +304,7 @@ body {
     width: 100%;
   }
 
-  .media_image img{
+  .media_image img {
     height: 400px;
   }
 
@@ -310,6 +316,13 @@ body {
 
   .movie_information p {
     font-size: 16px;
+  }
+
+  .close_button {
+    top: 0;
+    right: 0;
+    padding: 2px;
+    font-size: 20px;
   }
 
   .info_block {
