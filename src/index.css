@@ -152,7 +152,7 @@ body {
   top: 1%;
   right: 1%;
   padding: 2px;
-  font-size: 30px;
+  font-size: 45px;
   color: rgb(220, 220, 220);
   border-radius: 50%;
   box-shadow: 0 0 5px 4px #174684;
@@ -267,7 +267,6 @@ body {
 }
 
 /* spinner css end */
-
 
 @media (max-width: 600px) {
   body {
