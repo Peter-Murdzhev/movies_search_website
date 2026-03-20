@@ -30,7 +30,7 @@ const MoviePage = () => {
     fetchMovie();
   }, [id])
 
-  //this is dev stage fetch
+  //dev stage fetch
 
   // useEffect(() => {
   //   const fetchMovie = async () => {
@@ -72,13 +72,17 @@ const MoviePage = () => {
         <div className="movie_intro">
           <h2>{movie.title}</h2>
           <MediaDisplay imageSrc={movie.poster_path} trailerSrc={trailerURL} />
-          <p ><strong>Rating:{movie.vote_average}</strong></p>
+          <p><strong>Rating: {movie.vote_average}</strong></p>
         </div>
 
         <p className="description">{movie.overview}</p>
       </div>
 
-      <div className="info_block" style={{ alignSelf: "center" }}>
+      <div className="divider"></div>
+
+      <div className="info_block" style={{ alignSelf: "center", backgroundColor: "#04418d", padding: "10px",
+         borderRadius: "12px", boxShadow: "0 10px 25px rgba(37, 37, 218, 0.6)",
+         width: "80%", margin: "0 auto", lineHeight:"1.5" }}>
         <p>Actors:</p>
         <ul>
           {actors.map((actor, index) => (
@@ -108,7 +112,7 @@ const MoviePage = () => {
       </div>
 
       <div className="info_block" style={{ alignSelf: "center", fontSize: "14px" }}>
-        <p style={{ fontSize: "14px" }}>Languages:</p>
+        <p style={{ fontSize: "14px", marginTop: "30px" }}>Languages:</p>
         <ul>
           {movie.spoken_languages.map((language, index) => (
             <li key={index}>{language.english_name}</li>
@@ -120,6 +124,8 @@ const MoviePage = () => {
         fontSize: "14px", margin: "0 auto",
         marginBottom: "40px", marginTop: "20px"
       }}>Release date: {movie.release_date}</p>
+
+      <div className="divider"></div>
 
       {
         reviews.length > 0 &&

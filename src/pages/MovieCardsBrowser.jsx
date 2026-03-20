@@ -5,6 +5,7 @@ import MovieCard from "../components/MovieCard";
 const MovieCardsBrowser = () => {
     const [movies, setMovies] = useState([]);
     const { input } = useParams();
+    const[loading, setLoading] = useState(true);
 
     //production stage fetch
     useEffect(() => {
@@ -19,7 +20,7 @@ const MovieCardsBrowser = () => {
         fetchMovies();
     }, [input])
 
-    //this is dev stage fetch
+    //dev stage fetch
 
     // useEffect(() => {
     //     const fixedInput = input.replace(/[.,/;:-]+/g, " ")
@@ -34,6 +35,7 @@ const MovieCardsBrowser = () => {
 
     //         const data = await response.json();
     //         setMovies(data.results);
+    //         setLoading(false);
     //     }
 
     //     fetchMovies();
@@ -44,7 +46,7 @@ const MovieCardsBrowser = () => {
             {
                 movies?.length > 0 ? movies.map(movie => (
                     <MovieCard key={movie.id} movie={movie} />
-                )) : <p className="no_movies_message">
+                )) : !loading && <p className="no_movies_message">
                     Movies not found</p>
             }
         </div>
