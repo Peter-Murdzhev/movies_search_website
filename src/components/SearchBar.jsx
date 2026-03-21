@@ -1,36 +1,36 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Hero from "./Hero";
 
 const SearchBar = () => {
   const [input, setInput] = useState("");
   const [isSearchTriggered, setIsSearchTriggered] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    const triggered = sessionStorage.getItem("search_triggered") === "true";
-    setIsSearchTriggered(triggered);
+    if (location.pathname !== "/") {
+      setIsSearchTriggered(true);
+    }
 
     const currentInput = sessionStorage.getItem("input");
-    if(currentInput){
+    if (currentInput) {
       setInput(currentInput);
     }
-  }, [])
+  }, [location])
 
   const handleSearch = async (e) => {
     e.preventDefault();
 
     if (input.length > 0) {
-      setIsSearchTriggered(true);
-      sessionStorage.setItem("search_triggered", true);
       sessionStorage.setItem("input", input);
 
-      navigate(`movies/${input}`);
+      navigate(`/movies/${input}`);
     } else {
       setIsSearchTriggered(false);
-      sessionStorage.setItem("search_triggered", false);
+      sessionStorage.removeItem("input");
 
-      navigate("/")
+      navigate("/");
     }
   }
 
@@ -42,7 +42,8 @@ const SearchBar = () => {
 
   return (
     <div className="search_page">
-      <Hero isSearchTriggered={isSearchTriggered} />
+      <Hero isSearchTriggered={isSearchTriggered} setIsSearchTriggered={setIsSearchTriggered}
+      setInput={setInput} />
 
       <form className={`search_bar ${isSearchTriggered ? "search_active" : ""}`}>
         <input type="text" value={input} placeholder="Enter movie name"
