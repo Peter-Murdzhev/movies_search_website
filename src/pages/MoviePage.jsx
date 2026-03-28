@@ -80,9 +80,11 @@ const MoviePage = () => {
 
       <div className="divider"></div>
 
-      <div className="info_block" style={{ alignSelf: "center", backgroundColor: "#04418d", padding: "10px",
-         borderRadius: "12px", boxShadow: "0 10px 25px rgba(37, 37, 218, 0.6)",
-         width: "80%", margin: "0 auto", lineHeight:"1.5" }}>
+      <div className="info_block" style={{
+        alignSelf: "center", backgroundColor: "#04418d", padding: "10px",
+        borderRadius: "12px", boxShadow: "0 10px 25px rgba(37, 37, 218, 0.6)",
+        width: "80%", margin: "0 auto", lineHeight: "1.5"
+      }}>
         <p>Actors:</p>
         <ul>
           {actors.map((actor, index) => (
